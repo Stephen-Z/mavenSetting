@@ -50,7 +50,7 @@ under the License.
    | Default: ${user.home}/.m2/repository
   <localRepository>/path/to/local/repo</localRepository>
   -->
-  <localRepository>/home/lzm/.m2/repository</localRepository>
+  <!-- <localRepository>/home/lzm/.m2/repository</localRepository> -->
 
   <!-- interactiveMode
    | This will determine whether maven prompts you when it needs input. If set to false,
@@ -167,18 +167,11 @@ under the License.
     </mirror>
      -->
 	<mirror>
-      <!--This sends everything else to /public -->
-      <id>nexus</id>
-      <mirrorOf>*</mirrorOf> 
-      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-    </mirror>
-	<mirror>
-      <!--This is used to direct the public snapshots repo in the 
-          profile below over to a different nexus group -->
-      <id>nexus-public-snapshots</id>
-      <mirrorOf>public-snapshots</mirrorOf> 
-      <url>http://maven.aliyun.com/nexus/content/repositories/snapshots/</url>
-    </mirror>
+		<id>alimaven</id>
+		<mirrorOf>central</mirrorOf>
+		<name>aliyun maven</name>
+		<url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
+	</mirror>
   </mirrors>
   
   <!-- profiles
